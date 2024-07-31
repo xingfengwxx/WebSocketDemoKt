@@ -150,6 +150,8 @@ class MainActivity : AppCompatActivity() {
             }
             WsGo.getInstance().send(msg)
 
+            binding.etText.setText("")
+
 //            webSocketManager.sendMessage(msg)
         }
     }
