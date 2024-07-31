@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private val logLiveData = MutableLiveData<String>()
 
-    private lateinit var webSocketManager: WebSocketManager
+    private var webSocketManager: WebSocketManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initWebSocketWithOkHttp() {
         webSocketManager = WebSocketManager(DEFAULT_URL)
-        webSocketManager.addListener(object : WebSocketListener() {
+        webSocketManager?.addListener(object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 printLog("onOpen: ${response.message}")
             }
@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        webSocketManager.connect()
+        webSocketManager?.connect()
     }
 
     private fun initView() {
@@ -174,6 +174,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        webSocketManager.disconnect()
+        webSocketManager?.disconnect()
     }
 }
