@@ -1,0 +1,7 @@
+apply plugin: 'java-library'
+
+version = VERSION
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

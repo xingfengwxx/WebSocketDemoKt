@@ -1,0 +1,10 @@
+apply plugin: 'java-library'
+
+version = VERSION
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':wsgo-lib')
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+}

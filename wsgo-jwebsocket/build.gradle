@@ -1,0 +1,10 @@
+apply plugin: 'java-library'
+
+version = VERSION
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':wsgo-lib')
+
+    implementation "org.java-websocket:Java-WebSocket:1.4.1"
+}
